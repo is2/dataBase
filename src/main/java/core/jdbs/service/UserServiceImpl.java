@@ -12,14 +12,11 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService{
 
-    private final UserDao userDao;
-
-
+    private UserDao userDao = new UserDaoHibernateImpl();
+    private final UserDao userDao1 = new UserDaoJDBSImpl();
     public UserServiceImpl(boolean useHibernate) throws SQLException {
-        if (useHibernate) {
-            this.userDao = new UserDaoHibernateImpl();
-        } else {
-            this.userDao = new UserDaoJDBSImpl();
+        if (!useHibernate) {
+            this.userDao = this.userDao1;
         }
     }
 
