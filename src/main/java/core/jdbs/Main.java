@@ -10,7 +10,7 @@ public class Main {
 
 
 
-        UserService userService = new UserServiceImpl(false);
+        UserService userService = new UserServiceImpl();
 
         userService.createUsersTable();
 
@@ -29,18 +29,6 @@ public class Main {
 
 
 
-        UserServiceImpl userService1 = new UserServiceImpl(true);
 
-        userService1.createUsersTable();
-        userService1.saveUser("A", "A", (byte) 25);
-        userService1.saveUser("B", "B", (byte) 30);
-        userService1.saveUser("C", "C", (byte) 25);
-        userService1.saveUser("D", "D", (byte) 30);
-        System.out.println("Users in database:");
-        for (User user : userService1.getAllUsers()) {
-            System.out.println(user);
-        }
-        userService1.cleanUsersTable();
-        userService1.dropUsersTable();
     }
 }

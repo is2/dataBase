@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceTest {
-    private final UserService userService = new UserServiceImpl(true);
+    private final UserService userService = new UserServiceImpl();
 
     private final String testName = "Nick";
     private final String testLastName = "Martin";

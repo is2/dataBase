@@ -4,25 +4,17 @@ import core.jdbs.dao.UserDao;
 import core.jdbs.dao.UserDaoHibernateImpl;
 import core.jdbs.dao.UserDaoJDBSImpl;
 import core.jdbs.model.User;
-import core.jdbs.util.Util;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService{
 
-    private final UserDao userDao;
 
+    private final UserDao userDao = new UserDaoJDBSImpl();
 
-    public UserServiceImpl(boolean useHibernate) throws SQLException {
-        if (useHibernate) {
-            this.userDao = new UserDaoHibernateImpl();
-        } else {
-            this.userDao = new UserDaoJDBSImpl();
-        }
+    public UserServiceImpl() throws SQLException {
     }
-
 
 
     public void createUsersTable() {
