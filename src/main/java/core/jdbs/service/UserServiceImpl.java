@@ -11,7 +11,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
 
-    private final UserDao userDao = new UserDaoJDBSImpl();
+    private UserDao userDao = new UserDaoJDBSImpl();
 
     public UserServiceImpl() throws SQLException {
     }
