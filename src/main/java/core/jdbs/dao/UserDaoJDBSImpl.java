@@ -11,8 +11,11 @@ public class UserDaoJDBSImpl implements UserDao{
 
     private Connection connection;
 
-    public UserDaoJDBSImpl() throws SQLException {
-        this.connection = Util.getConnection();;
+    public UserDaoJDBSImpl() {
+        try {
+        this.connection = Util.getConnection(); }
+        catch (SQLException e) {
+            e.printStackTrace();        }
     }
     @Override
     public void createUsersTable() {
